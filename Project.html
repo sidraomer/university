@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBISE Clone</title>
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    color: white;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+.navbar ul li {
+    margin: 0 10px;
+}
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    width: 1255px;
+    overflow: hidden;
+   
+}
+.slider img {
+    width: 100%;
+    height: auto;
+    transition: slider 0.7s ease;
+}
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+#prev { left: 10px; }
+#next { right: 10px; }
+
+/* View Results Button */
+.view-results {
+    text-align: center;
+    margin: 20px 0;
+}
+.view-results button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.logo{
+    width: 200px;
+}
+
+.product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card:hover{
+            transform: translateY(-10px);
+            transition: ease;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .image{
+            width: 300px;
+            height: 200px;
+        }
+
+/* Cards Section */
+.cards-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.card {
+    width: 200px;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.card img {
+    width: 150px;
+    height: 150px;
+}
+
+.icon {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #007BFF;
+}
+
+/* Circular Icons */
+.circular-icons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+.circle {
+    text-align: center;
+}
+.circle img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* Text Section */
+.text-section {
+    text-align: center;
+    margin: 20px;
+    font-size: 15.6px;
+}
+.chota{
+    font-size: 10.9px;
+}
+
+.temple{
+    list-style: none;
+    margin: 12px;
+}
+
+
+footer {
+            background-color: #0099CC;
+            color: white;
+            padding: 20px 0;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            flex: 1;
+            padding: 10px;
+            min-width: 250px;
+            box-sizing: border-box;
+        }
+        .footer-section h3 {
+            margin-bottom: 10px;
+            color: #006A92;
+            background-color: #ffffff;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+            font-size: 14px;
+            padding: 10px;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        .map {
+            max-width: 100%;
+            height: auto;
+            border: none;
+        }
+        .bottom-bar {
+            text-align: center;
+            background-color: #555;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .bottom-bar a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .bottom-bar a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <p>Open Hours: 08:00 TO 16:00 MON-FRIDAY</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="FBISE Logo" class="logo">
+        </div>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Offices</a></li>
+            <li><a href="#">Students</a></li>
+            <li><a href="#">Institutes</a></li>
+            <li><a href="#">BOG Election</a></li>
+            <li><a href="#">Tecnical Education</a></li>
+            <li><a href="#">Others</a></li>
+        </ul>
+    </nav>
+
+    <!-- Slider -->
+    <section class="slider">
+        <div class="slide">
+            <img src="results.jpg" alt="Slider Image 1">
+        </div>
+        <div class="slide">
+            <img src="exam.jpg" alt="Slider Image 2">
+        </div>
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+    </section>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="books.jpg" alt="Books" class="image">
+            
+            <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, obcaecati unde est, nesciunt delectus cumque consequatur beatae eligendi, minus deleniti autem quae id assumenda dolores impedit tempora voluptatibus. Ducimus, sed.</p>
+        </div>
+        <div class="product-card">
+            <img src="chalaan.jpg" alt="" class="image">
+           
+            <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis vitae omnis totam architecto doloribus quibusdam dolore rem quaerat similique saepe officia nemo eos at, impedit earum, nulla dicta error est.</p>
+        </div>
+        <div class="product-card">
+            <img src="online services.jpg" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio exercitationem laborum saepe veritatis voluptas magni deleniti illo, ratione provident incidunt, consequatur, tempore minima totam fugit dolorem nam ipsa eveniet hic!</p>
+        </div>
+        <div class="product-card">
+            <img src="students.jpg" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sunt quia. Suscipit soluta ipsum rem dolorem reprehenderit eos optio voluptatum? Esse officia numquam totam quaerat pariatur error sint dolorum nam?</p>
+        </div>
+        <div class="product-card">
+            <img src="laptop.jpg" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, suscipit ad? Cumque animi sint asperiores accusantium aliquid odio harum eligendi sapiente voluptatum, fugit dolorem quasi, enim nemo sit ratione excepturi.</p>
+        </div>
+        <div class="product-card">
+            <img src="debit.png" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quaerat modi, quis ex obcaecati repudiandae eum repellendus dolorum, magni fuga, voluptate similique facere nulla aut provident animi omnis hic minus!</p>
+        </div>
+        <div class="product-card">
+            <img src="super staff.jpg" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, nesciunt nisi? Architecto, voluptas nulla voluptatum cupiditate impedit dolor possimus dignissimos quia autem, praesentium totam sunt, est cumque assumenda quisquam hic.</p>
+        </div>
+        <div class="product-card">
+            <img src="keyboardd.jpg" alt="" class="image">
+             <p class="chota">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officia cumque blanditiis in similique, modi architecto dolores voluptatibus, ab eligendi reiciendis ut eos, commodi quod distinctio explicabo alias voluptate soluta.</p>
+        </div>
+        <div class="product-card">
+            <img src="admission.jpg" alt="" class="image">
+             <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iste, hic id officiis quas non optio voluptatibus? Aperiam distinctio minus ratione porro repellat. Nulla placeat eveniet laudantium, blanditiis doloremque sapiente.</p>
+        </div>
+        <div class="product-card">
+            <img src="paper.jpg" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda similique provident repudiandae, alias neque nulla nesciunt praesentium corporis veritatis qui labore nam debitis doloremque asperiores voluptatibus voluptates libero minima illum.</p>
+        </div>
+        <div class="product-card">
+            <img src="salamalekum.jpg" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae odio voluptatum quas, deserunt vitae tempora! Numquam vel iste recusandae? Temporibus explicabo provident reprehenderit impedit ipsa ullam facilis maiores unde? Quasi.</p>
+        </div>
+        <div class="product-card">
+            <img src="copy.jpg" alt="" class="image">
+            <p class="chota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos soluta commodi unde non, a voluptas porro culpa, ab omnis ut error dignissimos quis. Incidunt at delectus quisquam atque nihil eligendi.</p>
+        </div>
+    </div>
+
+    <!-- View Results Button -->
+    <div class="view-results">
+        <button>View Results</button>
+    </div>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="card">
+            <img src="file.png" alt="Image">
+            <h3>Lorem Ipsum</h3>
+            <div class="icon"><i class="fas fa-file"></i></div>
+            <p>Notifications/Downloads</p>
+        </div>
+        <div class="card">
+            <img src="spikes.jpeg" alt="Image">
+            <h3>Lorem Ipsum</h3>
+            <div class="icon"><i class="fas fa-balance-scale"></i></div>
+            <p>Online Services</p>
+        </div>
+        <div class="card">
+            <img src="money.jpeg" alt="Image">
+            <h3>Lorem Ipsum</h3>
+            <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <p>Tenders</p>
+        </div>
+        <div class="card">
+            <img src="profile.jpg" alt="Image">
+            <h3>Lorem Ipsum</h3>
+            <div class="icon"><i class="fas fa-user-circle"></i></div>
+            <p>Pakistan Citizen's Portal</p>
+        </div>
+    </section>
+
+    <!-- Circular Icons Section -->
+    <section class="circular-icons">
+        <div class="circle">
+            <img src="one.jpg" alt="">
+            <img src="two.jpg" alt="Image">
+            <img src="three.jpeg" alt="Image">
+            <img src="four.jpg" alt="Image">
+            <img src="five.jpeg" alt="Image">
+            <p>DR. IKRAM ALI MALIK</p>
+            <span>Chairman</span>
+        </div>
+        <!-- Add 4 more small circles here -->
+    </section>
+
+    <!-- Large Text Section -->
+    <section class="text-section">
+        <p>The Federal Board of Intermediate and Secondary Education (Urdu: وفاقی ہیئت برائے متوسط و ثانوی تعلیم), commonly known as FBISE, is an autonomous board under the Ministry of Federal Education for examining the intermediate and secondary education in Pakistan and abroad for Pakistan International School. It is authorized with financial and administrative authority to organize, manage, regulate, develop and control intermediate and secondary education in general and accomplish examinations in the institutions affiliated with it.
+
+            Examinations conducted by the Federal Board of Intermediate and Secondary Education (FBISE) are known to be fair and transparent. The education ministry is taking steps in order to improve the quality of other educational boards in Pakistan at par with FBISE.[1]
+            
+            History
+            The FBISE was established under the FBISE Act 1975.[2] It is an autonomous body of working under the Ministry of Federal Education and Professional Training.[3] The official website of FBISE was launched on June 7, 2001, and was inaugurated by Mrs. Zobaida Jalal, the Minister for Education[4] The first-ever online result of FBISE was announced on 18 August 2001.[5] As of August 2004, 270 institutions were affiliated at the HSSC level and 545 at the SSC level.[6]</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- App Section -->
+            <div class="footer-section">
+                <h3>Get Our Official App!</h3>
+                <a href="#"><img src="https://via.placeholder.com/150x50?text=Google+Play" alt="Google Play"></a>
+                <a href="#"><img src="https://via.placeholder.com/150x50?text=App+Store" alt="App Store"></a>
+            </div>
+
+            <!-- Links Section -->
+            <div class="footer-section">
+                <h3>FBISE LINKS!</h3>
+                <a href="#">Date Sheet</a>
+                <a href="#">Statistics</a>
+                <a href="#">Change Subjects</a>
+                <a href="#">FBISE Privacy</a>
+            </div>
+
+            <!-- Support Section -->
+            <div class="footer-section">
+                <h3>SUPPORT!</h3>
+                <a href="#">Tenders</a>
+                <a href="#">Publications</a>
+                <a href="#">Institutions GIS</a>
+                <a href="#">FAQs</a>
+            </div>
+
+            <!-- Map Section -->
+            <div class="footer-section">
+                <h3>Location</h3>
+                <iframe 
+                    class="map" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.364020895492!2d73.06324001613398!3d33.6770122807127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df959e6a8b392f%3A0x8b374d6987f84d!2sFederal%20Board%20of%20Intermediate%20and%20Secondary%20Education!5e0!3m2!1sen!2s!4v1690999999999" 
+                    width="100%" height="150" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            Federal Board of Intermediate and Secondary Education Islamabad, P.O. BOX NO. (1365) &copy; 2024 FBISE. All rights reserved.
+            <br>
+            <a href="mailto:info@fbise.edu.pk">info@fbise.edu.pk</a> | UAN: 111 032473
+        </div>
+    </footer>
+
+    <!-- Script -->
+   <script>
+      let currentSlide = 0;
+const slides = document.querySelectorAll(".slider .slide");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+    });
+}
+
+prev.addEventListener("click", () => {
+    currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+    showSlide(currentSlide);
+});
+
+next.addEventListener("click", () => {
+    currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+    showSlide(currentSlide);
+});
+
+showSlide(currentSlide);
+   </script>
+</body>
+</html>
